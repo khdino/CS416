@@ -23,7 +23,7 @@
 async function func1() {
 
       data = await d3.csv("gasoline_prices_conversion_2021.csv")
-      var x = d3.scaleLinear().domain([1950,2021]).range([0,1000])
+      var x = d3.scaleLinear().domain([1950,2021]).range([0,900])
       var y = d3.scaleLinear().domain([0,5]).range([400,0])
       var svg1 = d3.select('svg').append('g').attr('transform', 'translate(100,100)')
       var svg2 = d3.select('svg').append('g').attr('transform', 'translate(100,500)')
@@ -47,7 +47,7 @@ async function func1() {
                         label: "1950~2021 Gasoline price reflecting inflation",
                         title: "$/gallon"
                         },
-                  x: 750,
+                  x: 700,
                   y: 400,
                   dy: 100,
                   dx: 100
