@@ -20,6 +20,7 @@
       
 
 async function func1() {
+            d3.selectAll("svg > *").remove()
             data = await d3.csv("gasoline_prices_conversion_2021.csv")
             var x = d3.scaleLinear().domain([1950,2021]).range([0,850])
             var y = d3.scaleLinear().domain([0,5]).range([400,0])
@@ -57,7 +58,8 @@ async function func1() {
             d3.select('svg').append('g').call(makeAnnotation1)
 }
 
-async function func2() {      
+async function func2() {
+            d3.selectAll("svg > *").remove()
             data = await d3.csv("gasoline_prices_conversion_2021.csv")
             var x = d3.scaleLinear().domain([1950,2021]).range([0,850])
             var y = d3.scaleLinear().domain([0,5]).range([400,0])
@@ -97,6 +99,7 @@ async function func2() {
 }
       
 async function func3() {
+            d3.selectAll("svg > *").remove()
             data = await d3.csv("gasoline_prices_conversion_2021.csv")
             var x = d3.scaleLinear().domain([1950,2021]).range([0,850])
             var y = d3.scaleLinear().domain([0,5]).range([400,0])
