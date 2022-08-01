@@ -24,8 +24,8 @@ async function init() {
       var svg1 = d3.select('svg').append('g').attr('transform', 'translate(100,100)')
       var svg2 = d3.select('svg').append('g').attr('transform', 'translate(100,500)')
       var svg3 = d3.select('svg').append('g').attr('transform', 'translate(100,100)')
-      
 
+/*
       var func1 = function(){
 
             svg1.selectAll('rect').data(data).enter().append('rect').attr('width', 4).attr('height', 4).attr('x', function(d) { return x(d['Year']);}).attr('y', function(d) { return y(d['Gasoline Price (2021 $/gallon)']);})
@@ -95,10 +95,10 @@ async function init() {
       
             d3.select('svg').append('g').call(makeAnnotation3)
       }
-            
+ */           
             
       //Backup      
-      //svg.selectAll('rect').data(data).enter().append('rect').attr('width', 4).attr('height', 4).attr('x', function(d) { return x(d['Year']);}).attr('y', function(d) { return y(d['Gasoline Price (2021 $/gallon)']);})
+      svg.selectAll('rect').data(data).enter().append('rect').attr('width', 4).attr('height', 4).attr('x', function(d) { return x(d['Year']);}).attr('y', function(d) { return y(d['Gasoline Price (2021 $/gallon)']);})
 
       // X axis
       svg2.call(d3.axisBottom(x).tickValues([1950,1960,1970,1980,1990,2000,2010,2021]).tickFormat(d3.format('.0f')))
