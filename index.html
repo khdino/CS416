@@ -58,7 +58,7 @@ async function func(i) {
       
             d3.select('svg').append('g').call(makeAnnotation1)
       }      
-      /*if (i == 'two') {
+      else if (i == 'two') {
             data = await d3.csv("gasoline_prices_conversion_2021.csv")
             var x = d3.scaleLinear().domain([1950,2021]).range([0,850])
             var y = d3.scaleLinear().domain([0,5]).range([400,0])
@@ -95,8 +95,8 @@ async function func(i) {
             const makeAnnotation2 = d3.annotation().annotations(annotation2)
       
             d3.select('svg').append('g').call(makeAnnotation2)
-      }*/
-      if (i == 'three') {
+      }
+      else if (i == 'three') {
             data = await d3.csv("gasoline_prices_conversion_2021.csv")
             var x = d3.scaleLinear().domain([1950,2021]).range([0,850])
             var y = d3.scaleLinear().domain([0,5]).range([400,0])
