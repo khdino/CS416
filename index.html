@@ -114,9 +114,9 @@ async function init() {
              }
              ]
       
-       const makeAnnotation1 = d3.annotation().annotations(annotation1)
+      const makeAnnotation1 = d3.annotation().annotations(annotation1)
       
-       d3.select('svg').append('g').call(makeAnnotation1)
+      d3.select('svg').append('g').call(makeAnnotation1)
       
       // X axis
       svg2.call(d3.axisBottom(x).tickValues([1950,1960,1970,1980,1990,2000,2010,2021]).tickFormat(d3.format('.0f')))
