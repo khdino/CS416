@@ -7,10 +7,11 @@
 <style> rect {fill: red; stroke: blue;} </style>
 <body onload='init()'>
 
-<button type="button" onclick="func(one)">Price</button>
-<button type="button" onclick="func(two)">Inflation adjuster</button>
-<button type="button" onclick="func(three)">Price(reflection X)</button>
-<div id="trigger"></div>
+<div id="trigger">
+      <button type="button" onclick="func(one)">Price</button>
+      <button type="button" onclick="func(two)">Inflation adjuster</button>
+      <button type="button" onclick="func(three)">Price(reflection X)</button>
+</div>
 
 <svg width = 1000 height = 1000>
 </svg>
@@ -22,7 +23,7 @@ async function init() {
       data = await d3.csv("gasoline_prices_conversion_2021.csv")
       var x = d3.scaleLinear().domain([1950,2021]).range([0,400])
       var y = d3.scaleLinear().domain([0,5]).range([400,0])
-      //var svgs = d3.select('#trigger').append('svg').append('g').append('rect').attr('transform', 'translate(100,100)')
+      var svgs = d3.select('#trigger').append('svg').append('g').append('rect').attr('transform', 'translate(100,100)')
       var svg2 = d3.select('svg').append('g').attr('transform', 'translate(100,500)')
       var svg3 = d3.select('svg').append('g').attr('transform', 'translate(100,100)')
       
@@ -32,7 +33,7 @@ async function init() {
             var two = 'Inflation Adjuster'
             var three = 'Gasoline Price (2021 $/gallon)'
             
-            //svgs.selectAll('rect').data(data).enter().append('rect').attr('width', 4).attr('height', 4).attr('x', function(d) { return x(d['Year']);}).attr('y', function(d) { return y(d[factor]);})
+            svgs.selectAll('rect').data(data).enter().append('rect').attr('width', 4).attr('height', 4).attr('x', function(d) { return x(d['Year']);}).attr('y', function(d) { return y(d[factor]);})
             
             // annotation
             const annotation1 = [
