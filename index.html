@@ -10,7 +10,6 @@
 <button type="button" onclick="func1()">Price</button>
 <button type="button" onclick="func2()">Inflation adjuster</button>
 <button type="button" onclick="func3()">Price(reflection X)</button>
-<div id="dataviz_button"></div>
 
 <svg width = 1000 height = 1000>
 </svg>
@@ -22,9 +21,9 @@ async function init() {
       data = await d3.csv("gasoline_prices_conversion_2021.csv")
       var x = d3.scaleLinear().domain([1950,2021]).range([0,400])
       var y = d3.scaleLinear().domain([0,5]).range([400,0])
-      var svg1 = d3.select('#dataviz_button').append('svg').append('g').attr('transform', 'translate(100,100)')
-      var svg2 = d3.select('#dataviz_button').select('svg').append('g').attr('transform', 'translate(100,500)')
-      var svg3 = d3.select('#dataviz_button').select('svg').append('g').attr('transform', 'translate(100,100)')
+      var svg1 = d3.select('svg').append('g').attr('transform', 'translate(100,100)')
+      var svg2 = d3.select('svg').append('g').attr('transform', 'translate(100,500)')
+      var svg3 = d3.select('svg').append('g').attr('transform', 'translate(100,100)')
       
 /*
       var func1 = function(){
