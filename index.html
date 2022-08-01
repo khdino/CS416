@@ -38,13 +38,13 @@ async function func(i) {
             d3.select('svg').append('text').attr('x', 30).attr('y', 250).text('price or ia')
             // format reference : https://observablehq.com/@d3/d3-format
       
-            svg1.selectAll('rect').data(data).enter().append('rect').attr('width', 4).attr('height', 4).attr('x', function(d) { return x(d['Year']);}).attr('y', function(d) { return y(d['Gasoline Price ($/gallon)' ]);})
+            svg1.selectAll('rect').data(data).enter().append('rect').attr('width', 4).attr('height', 4).attr('x', function(d) { return x(d['Year']);}).attr('y', function(d) { return y(d['Gasoline Price (2022 $/gallon)' ]);})
             
             // annotation
             const annotation1 = [
                   {
                         note: {
-                              label: "1950~2021 Gasoline price (without reflecting inflation)",
+                              label: "1950~2021 Gasoline price (reflecting 2022 price)",
                               title: "$/gallon"
                               },
                         x: 700,
@@ -114,14 +114,14 @@ async function func(i) {
             // format reference : https://observablehq.com/@d3/d3-format
  
       
-            svg1.selectAll('rect').data(data).enter().append('rect').attr('width', 4).attr('height', 4).attr('x', function(d) { return x(d['Year']);}).attr('y', function(d) { return y(d['Inflation Adjuster');})
+            svg1.selectAll('rect').data(data).enter().append('rect').attr('width', 4).attr('height', 4).attr('x', function(d) { return x(d['Year']);}).attr('y', function(d) { return y(d['Gasoline Price ($/gallon)');})
             
             // annotation
-            const annotation2 = [
+            const annotation3 = [
                   {
                         note: {
-                              label: "1950~2021 Inflation adjuster reflecting prices of 2021 : The higher the number for the year, the lower the price (continuous rise)",
-                              title: "Inflation transition"
+                              label: "1950~2021 Gasoline price (without reflecting inflation)",
+                              title: "$/gallon"
                               },
                         x: 700,
                         y: 300,
@@ -130,9 +130,9 @@ async function func(i) {
                   }
                   ]
       
-            const makeAnnotation2 = d3.annotation().annotations(annotation2)
+            const makeAnnotation3 = d3.annotation().annotations(annotation3)
       
-            d3.select('svg').append('g').call(makeAnnotation2)
+            d3.select('svg').append('g').call(makeAnnotation3)
       }
 }
           
