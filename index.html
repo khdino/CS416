@@ -7,9 +7,9 @@
 <style> rect {fill: red; stroke: blue;} </style>
 <body>
 
-<button type="button" onclick="func('one')">Price</button>
-<button type="button" onclick="func('two')">Inflation adjuster</button>
-<button type="button" onclick="func('three')">Price(reflection X)</button>
+<button type="button" onclick="func1()">Price</button>
+<button type="button" onclick="func2()">Inflation adjuster</button>
+<button type="button" onclick="func3()">Price(reflection X)</button>
 
 <svg width = 1000 height = 1000>
 </svg>
@@ -19,9 +19,7 @@
 
       
 
-
-async function func(i) {
-      if (i == 'one') {
+async function func1() {
             data = await d3.csv("gasoline_prices_conversion_2021.csv")
             var x = d3.scaleLinear().domain([1950,2021]).range([0,850])
             var y = d3.scaleLinear().domain([0,5]).range([400,0])
@@ -57,8 +55,9 @@ async function func(i) {
             const makeAnnotation1 = d3.annotation().annotations(annotation1)
       
             d3.select('svg').append('g').call(makeAnnotation1)
-      }      
-      else if (i == 'two') {
+}
+
+async function func2() {      
             data = await d3.csv("gasoline_prices_conversion_2021.csv")
             var x = d3.scaleLinear().domain([1950,2021]).range([0,850])
             var y = d3.scaleLinear().domain([0,5]).range([400,0])
@@ -95,8 +94,9 @@ async function func(i) {
             const makeAnnotation2 = d3.annotation().annotations(annotation2)
       
             d3.select('svg').append('g').call(makeAnnotation2)
-      }
-      else if (i == 'three') {
+}
+      
+async function func3() {
             data = await d3.csv("gasoline_prices_conversion_2021.csv")
             var x = d3.scaleLinear().domain([1950,2021]).range([0,850])
             var y = d3.scaleLinear().domain([0,5]).range([400,0])
@@ -133,8 +133,8 @@ async function func(i) {
             const makeAnnotation3 = d3.annotation().annotations(annotation3)
       
             d3.select('svg').append('g').call(makeAnnotation3)
-      }
 }
+
           
 //Backup      
 //svg1.selectAll('rect').data(data).enter().append('rect').attr('width', 4).attr('height', 4).attr('x', function(d) { return x(d['Year']);}).attr('y', function(d) { return y(d['Gasoline Price (2021 $/gallon)']);})
