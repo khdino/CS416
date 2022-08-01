@@ -26,7 +26,7 @@ var svg2 = d3.select('svg').append('g').attr('transform', 'translate(100,500)')
 var svg3 = d3.select('svg').append('g').attr('transform', 'translate(100,100)')
 
 
-var func1 = function(){
+function func1() {
 
       svg1.selectAll('rect').data(data).enter().append('rect').attr('width', 4).attr('height', 4).attr('x', function(d) { return x(d['Year']);}).attr('y', function(d) { return y(d['Gasoline Price (2021 $/gallon)']);})
             
@@ -50,7 +50,7 @@ var func1 = function(){
 
 }
       
-var func2 = function(){
+function func2() {
       
       svg1.selectAll('rect').data(data).enter().append('rect').attr('width', 4).attr('height', 4).attr('x', function(d) { return x(d['Year']);}).attr('y', function(d) { return y(d['Inflation Adjuster');})
             
@@ -73,7 +73,7 @@ var func2 = function(){
       d3.select('svg').append('g').call(makeAnnotation2)
 }
       
-var func3 = function(){
+function func3() {
 
       svg1.selectAll('rect').data(data).enter().append('rect').attr('width', 4).attr('height', 4).attr('x', function(d) { return x(d['Year']);}).attr('y', function(d) { return y(d['Gasoline Price ($/gallon)' ]);})
             
