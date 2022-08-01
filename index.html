@@ -27,7 +27,7 @@ async function init() {
       
       // Y axis
       svg.call(d3.axisLeft(y).tickValues([0,1,3,5]).tickFormat(d3.format('.2f')))
-      d3.select('svg').append('text').attr('transform', 'rotate(90)').attr('x', 40).attr('y', 300).text('price')
+      d3.select('svg').append('text').attr('x', 44).attr('y', 280).text('price')
       // format reference : https://observablehq.com/@d3/d3-format
       
       
