@@ -31,6 +31,53 @@ async function init() {
             var three = 'Gasoline Price (2021 $/gallon)'
             
             svg.selectAll('rect').data(data).enter().append('rect').attr('width', 4).attr('height', 4).attr('x', function(d) { return x(d['Year']);}).attr('y', function(d) { return y(d[factor]);})
+            
+            // annotation
+            const annotation1 = [
+                  {
+                        note: {
+                              label: "1950~2021 Gasoline price reflecting inflation",
+                              title: "$/gallon"
+                              },
+                        x: 500,
+                        y: 300,
+                        dy: 0,
+                        dx: 100
+                  }
+                  ]
+            const annotation2 = [
+                  {
+                        note: {
+                              label: "1950~2021 Inflation adjuster reflecting prices of 2021 : The higher the number for the year, the lower the price (continuous rise)",
+                              title: "Inflation transition"
+                              },
+                        x: 500,
+                        y: 300,
+                        dy: 0,
+                        dx: 100
+                  }
+                  ]
+            const annotation3 = [
+                  {
+                        note: {
+                              label: "1950~2021 Gasoline price (without reflecting inflation)",
+                              title: "$/gallon"
+                              },
+                        x: 500,
+                        y: 300,
+                        dy: 0,
+                        dx: 100
+                  }
+                  ]
+      
+            const makeAnnotation1 = d3.annotation().annotations(annotation1)
+            const makeAnnotation2 = d3.annotation().annotations(annotation2)
+            const makeAnnotation3 = d3.annotation().annotations(annotation3)
+      
+            const anno1 = d3.select('svg').append('g').call(makeAnnotation1)
+            const anno2 = d3.select('svg').append('g').call(makeAnnotation2)
+            const anno3 = d3.select('svg').append('g').call(makeAnnotation3)
+            
             if (factor == one) {anno1}
             else if (factor == two) {anno2}
             else if (factor == three) {anno3}
@@ -46,53 +93,6 @@ async function init() {
       svg.call(d3.axisLeft(y).tickValues([0,1,3,5]).tickFormat(d3.format('.2f')))
       d3.select('svg').append('text').attr('x', 45).attr('y', 300).text('price')
       // format reference : https://observablehq.com/@d3/d3-format
-
-      
-      // annotation
-      const annotation1 = [
-            {
-                  note: {
-                        label: "1950~2021 Gasoline price reflecting inflation",
-                        title: "$/gallon"
-                        },
-                  x: 500,
-                  y: 300,
-                  dy: 0,
-                  dx: 100
-            }
-            ]
-      const annotation2 = [
-            {
-                  note: {
-                        label: "1950~2021 Inflation adjuster reflecting prices of 2021 : The higher the number for the year, the lower the price (continuous rise)",
-                        title: "Inflation transition"
-                        },
-                  x: 500,
-                  y: 300,
-                  dy: 0,
-                  dx: 100
-            }
-            ]
-      const annotation3 = [
-            {
-                  note: {
-                        label: "1950~2021 Gasoline price (without reflecting inflation)",
-                        title: "$/gallon"
-                        },
-                  x: 500,
-                  y: 300,
-                  dy: 0,
-                  dx: 100
-            }
-            ]
-      
-      const makeAnnotation1 = d3.annotation().annotations(annotation1)
-      const makeAnnotation2 = d3.annotation().annotations(annotation2)
-      const makeAnnotation3 = d3.annotation().annotations(annotation3)
-      
-      const anno1 = d3.select('svg').append('g').call(makeAnnotation1)
-      const anno2 = d3.select('svg').append('g').call(makeAnnotation2)
-      const anno3 = d3.select('svg').append('g').call(makeAnnotation3)
 
 }
 </script>
